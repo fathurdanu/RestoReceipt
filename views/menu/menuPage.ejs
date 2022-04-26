@@ -1,0 +1,113 @@
+<%- include('../header') %>
+    <div class="container-fluid py-5 secondary-color-bg screen-height">
+        <div class="container my-5">
+            <div class="row mb-3">
+                <h1 class="tertiary-color text-center">MENU</h1>
+                <a href="menus/create" class="btn primary-color-bg col-lg-2 col-md-3 col-sm-5 text-light my-2"> ADD FOOD MENU</a>
+            </div>
+            <h2 class="tertiary-color"> FOODS</h2>
+            <div class="row mb-5 g-3">
+                <% menus.forEach((menu,index)=> {
+                    if(menu.dataValues.type === 'food'){
+                    %>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card">
+                            <img class="card-img-top" src="<%= menu.dataValues.image %>" alt="Card image cap">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class=" offset-2 col-4">
+                                        <p class="card-text row">
+                                            <%= menu.dataValues.name %>
+                                        </p>
+                                        <p class="card-text row">
+                                            Rp.<%= menu.dataValues.price %>
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row mb-1">
+                                            <a href="menus/delete/<%= menu.dataValues.id %>" class="btn btn-danger offset-3 col-6">delete</a>
+                                        </div>
+                                        <div class="row">
+                                            <a href="menus/update/<%= menu.dataValues.id %>" class="btn btn-warning offset-3 col-6">edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <% } }); %>
+            </div>
+
+            <h2 class="tertiary-color">DRINKS</h2>
+            <div class="row mb-5 g-3">
+                <% menus.forEach((menu,index)=> {
+                    if(menu.dataValues.type === 'drink'){
+                    %>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card">
+                            <img class="card-img-top" src="<%= menu.dataValues.image %>" alt="Card image cap">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class=" offset-2 col-4">
+                                        <p class="card-text row">
+                                            <%= menu.dataValues.name %>
+                                        </p>
+                                        <p class="card-text row">
+                                            Rp.<%= menu.dataValues.price %>
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row mb-1">
+                                            <a href="/delete/<%= menu.dataValues.id %>" class="btn btn-danger offset-3 col-6">delete</a>
+                                        </div>
+                                        <div class="row">
+                                            <a href="/update/<%= menu.dataValues.id %>" class="btn btn-warning offset-3 col-6">edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } }); %>
+            </div>
+
+
+            <h2 class="tertiary-color">SNACKS</h2>
+            <div class="row mb-5 g-3">
+                <% menus.forEach((menu,index)=> {
+                    if(menu.dataValues.type === 'snack'){
+                    %>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card">
+                            <img class="card-img-top" src="<%= menu.dataValues.image %>" alt="Card image cap">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class=" offset-2 col-4">
+                                        <p class="card-text row">
+                                            <%= menu.dataValues.name %>
+                                        </p>
+                                        <p class="card-text row">
+                                            Rp.<%= menu.dataValues.price %>
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row mb-1">
+                                            <a href="/delete/<%= menu.dataValues.id %>" class="btn btn-danger offset-3 col-6">delete</a>
+                                        </div>
+                                        <div class="row">
+                                            <a href="/update/<%= menu.dataValues.id %>" class="btn btn-warning offset-3 col-6">edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } }); %>
+            </div>
+
+
+        </div>
+    </div>
+    <%- include('../footer') %>

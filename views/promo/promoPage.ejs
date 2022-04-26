@@ -1,0 +1,44 @@
+<%- include('../header') %>
+    <div class="container-fluid py-5 secondary-color-bg screen-height">
+        <div class="container my-5">
+            <div class="row mb-3">
+                <h1 class="tertiary-color text-center">PROMOS</h1>
+                <a href="/promos/create" class="btn primary-color-bg col-lg-2 col-md-3 col-sm-5 text-light my-2"> ADD NEW PROMO</a>
+            </div>
+            
+    
+            <div class="row mb-5 g-3">
+                <% promos.forEach((promo,index)=> { %>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class=" offset-1 col-5">
+                                        <p class="card-text row">
+                                            Nama Promo: <h4><%= promo.dataValues.name %></h4>
+                                        </p>
+                                        <p class="card-text row">
+                                            Discount: <h4><%= promo.dataValues.discount %>% </h4>
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row mb-1">
+                                            <a href="promos/delete/<%= promo.dataValues.id %>" class="btn btn-danger offset-3 col-6">delete</a>
+                                        </div>
+                                        <div class="row">
+                                            <a href="promos/update/<%= promo.dataValues.id %>" class="btn btn-warning offset-3 col-6">edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+
+
+
+        </div>
+    </div>
+    <%- include('../footer') %>

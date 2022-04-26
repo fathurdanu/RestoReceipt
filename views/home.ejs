@@ -1,0 +1,132 @@
+<%- include('header') %>
+
+    <div class="container-fluid secondary-color-bg py-5 screen-height">
+        <div class="mx-5 my-5">
+
+
+            <!-- title -->
+            <div class="row">
+                <div class="col-12 text-center tertiary-color">
+                    <h1>
+                        RestoReceipt
+                    </h1>
+                    <p>
+                        Restaurant Receipt
+                    </p>
+
+                </div>
+            </div>
+            <!-- title -->
+
+            <form action="receipts/create" method="POST">
+                <div class="row text-center text-light my-5">
+
+                    <div class="row mb-3 tertiary-color">
+                        <label for="type" class="col-sm-2 col-form-label h5">Promo Discount :</label>
+                        <div class="col-lg-3 col-md-3">
+                            <select id="PromoId" name="PromoId" class="form-control">
+                                <%  promos.forEach(promo => { %>    
+                                    <option value="<%= promo.dataValues.id %>"><%= promo.dataValues.name %> | -<%= promo.dataValues.discount %>%</option>
+                                <% } );%>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 container primary-color-bg rounded-edges g-3">
+                        <div class="row my-2 v-scroll">
+                            <h2>Food</h2>
+                            <% let index=1;%>
+                                <% menus.forEach((menu,i)=> {
+                                    if(menu.dataValues.type === 'food'){
+                                    %>
+                                    <div class="row my-3">
+                                        <div class="col-1">
+                                            <%= index %>
+                                        </div>
+                                        <div class="col-5">
+                                            <%= menu.dataValues.name%>
+                                        </div>
+                                        <div class="col-3">
+                                            Rp<%= menu.dataValues.price%>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="spinner-input" name="<%= menu.dataValues.id %>">
+                                        </div>
+                                    </div>
+                                    <% index++ } }) %>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 container primary-color-bg rounded-edges g-3">
+                        <div class="row my-2 v-scroll">
+                            <h2>Drink</h2>
+                            <% index=1;%>
+                                <% menus.forEach((menu,i)=> {
+                                    if(menu.dataValues.type === 'drink'){
+                                    %>
+                                    <div class="row my-3">
+                                        <div class="col-1">
+                                            <%= index %>
+                                        </div>
+                                        <div class="col-5">
+                                            <%= menu.dataValues.name%>
+                                        </div>
+                                        <div class="col-3">
+                                            Rp<%= menu.dataValues.price%>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="spinner-input" name="<%= menu.dataValues.id %>">
+                                        </div>
+                                    </div>
+                                    <% index++ } }) %>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 container primary-color-bg rounded-edges g-3">
+                        <div class="row my-2 v-scroll">
+                            <h2>Snack</h2>
+                            <% index=1;%>
+                                <% menus.forEach((menu,i)=> {
+                                    if(menu.dataValues.type === 'snack'){
+                                    %>
+
+                                    <div class="row my-3">
+                                        <div class="col-1">
+                                            <%= index %>
+                                        </div>
+                                        <div class="col-5">
+                                            <%= menu.dataValues.name%>
+                                        </div>
+                                        <div class="col-3">
+                                            Rp<%= menu.dataValues.price%>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="spinner-input" name="<%= menu.dataValues.id %>">
+                                        </div>
+                                    </div>
+                                    <% index++ } }) %>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row text-center">
+                    <div class="col-12">
+                        <button type="submit" class="btn tertiary-color-bg text-light circle-btn">Buy</button>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <%- include('footer') %>

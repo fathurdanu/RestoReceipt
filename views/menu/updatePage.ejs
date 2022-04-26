@@ -1,0 +1,51 @@
+<%- include('../header') %>
+    <div class="container-fluid py-5 secondary-color-bg screen-height small-text">
+        <div class="container my-5">
+            <h1 class="tertiary-color text-center">MENU</h1>
+            
+            <h3 class="mb-5"> EDIT PAGE</h3>
+            
+            <div class="container text-center">
+                <form action="/menus/update/<%= menu.dataValues.id %>" method="POST">
+                    <div class="form-group row mb-3">
+                        <label for="name" class="col-sm-2 col-form-label">Name :</label>
+                        <div class="col-sm-5">
+                            <input id="name" name="name" type="text" class="form-control"
+                                value="<%= menu.dataValues.name%>">
+                        </div>
+
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="price" class="col-sm-2 col-form-label">Price :</label>
+                        <div class="col-sm-5">
+                            <input id="price" name="price" type="number" class="form-control"
+                                value="<%= menu.dataValues.price %>">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="type" class="col-sm-2 col-form-label">Type :</label>
+                        <div class="col-sm-5">
+                            <select id="type" name="type" class="form-control" value="<%= menu.dataValues.type %>">
+                                <option value="food">food</option>
+                                <option value="drink">drink</option>
+                                <option value="snack">snack</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="image" class="col-sm-2 col-form-label">Image Link :</label>
+                        <div class="col-sm-5">
+                            <input id="image" name="image" type="text" class="form-control"
+                                value="<%= menu.dataValues.image %>"> </input>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button id="submit" type="submit" class="btn primary-color-bg text-light">Submit</input>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <%- include('../footer') %>

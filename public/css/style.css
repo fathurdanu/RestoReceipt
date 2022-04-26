@@ -1,0 +1,65 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.primary-color{
+    color: #423e37;
+}
+
+.primary-color-bg{
+    background-color: #423e37;
+}
+
+.secondary-color{
+    color: #edebd7
+}
+
+.secondary-color-bg{
+    background-color: #edebd7
+}
+
+.tertiary-color{
+    color: #6e675f;
+}
+
+.tertiary-color-bg{
+    background-color: #6e675f;
+}
+
+.spinner-input{
+    width: 60px
+}
+
+.rounded-edges{
+    border-radius: 10px;
+}
+
+.circle-btn{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    font-size: 30px;
+}
+
+.main-wrapper{
+    height: 100vh;
+}
+
+.small-text{
+    font-size: 20px;
+}
+
+.v-scroll::-webkit-scrollbar{
+    display: none;
+}
+
+.v-scroll{
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: 300px;
+}
+
+.screen-height{
+    min-height: 1440px;
+}

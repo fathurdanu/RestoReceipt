@@ -1,0 +1,106 @@
+<%- include('../header') %>
+    <div class="container-fluid py-5 secondary-color-bg screen-height ">
+        <div class="container my-5">
+            <div class="row">
+                <h1 class="tertiary-color text-center">RECEIPTS DETAILS</h1>
+            </div>
+
+
+            <div class="row mt-5 ">
+                <div class=" card offset-lg-4 col-lg-4 offset-md-3 col-md-6 col-sm-12">
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <h3>RestoReceipt</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h5>JL.MELATI</h5>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-3">
+                            Date:
+                        </div>
+                        <div class="col-9">
+                            <%= receipt.dataValues.createdAt.toLocaleString() %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            Receipt Id:
+                        </div>
+                        <div class="col-9">
+                            <%= receipt.dataValues.id %>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="mx-5">
+                        <div class="row ">
+                            <div class="col-4">
+                                Qty
+                            </div>
+                            <div class="col-5">
+                                Food
+                            </div>
+                            <div class="col-3">
+                                Price
+                            </div>
+                        </div>
+                        <% receipt.dataValues.orders.forEach(order=>{ %>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <%= order.dataValues.quantity %>
+                                </div>
+                                <div class="col-5">
+                                    <%= order.dataValues.Menu.name %>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <%= order.dataValues.Menu.price %>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+
+                    <hr>
+
+                    <div class="my-3 mx-5">
+                        <div class="row">
+                            <div class="offset-4 col-5">
+                                Subtotal:
+                            </div>
+                            <div class="col-3 text-end">
+                                <%= receipt.dataValues.subTotalPrice %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-4 col-5">
+                                Discount:
+                            </div>
+                            <div class="col-3 text-end">
+                                <%= (receipt.dataValues.subTotalPrice * receipt.Promo.discount / 100); %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-4 col-5">
+                                Total Price:
+                            </div>
+                            <div class="col-3 text-end">
+                                <%= receipt.dataValues.totalPrice %>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../footer') %>
