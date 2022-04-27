@@ -17,7 +17,6 @@ class PromoController {
     static async create(req, res) {
         try {
             const { name, discount } = req.body;
-            console.log(req.body);
             let result = await Promo.create({
                 name,
                 discount
@@ -51,7 +50,6 @@ class PromoController {
                 {
                     where: { id }
                 });
-            console.log(result);
             (result[0] === 1) ? res.redirect('/promos') : res.json({ message: "failed to update" });
         } catch (error) {
             res.json({ message: error });

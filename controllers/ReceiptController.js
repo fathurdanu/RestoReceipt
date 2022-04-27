@@ -7,7 +7,6 @@ class ReceiptController {
             let orders = await Order.findAll({
                 include: [Menu]
             });
-
             receipts.forEach(receipt => {
                 orders = orders.filter(order => order.ReceiptId === receipt.id);
                 receipt.dataValues.orders = orders;
@@ -26,12 +25,9 @@ class ReceiptController {
                 totalPrice: 0,
                 PromoId: params.PromoId
             });
-
             delete params['PromoId'];
-
             for (let key in params) {
                 let MenuId = +key;
-
                 if (params[key]) await Order.create({
                     MenuId: MenuId,
                     ReceiptId: receipt.id,

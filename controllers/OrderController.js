@@ -3,7 +3,11 @@ const { Order, Menu, Receipt } = require('../models');
 class OrderController {
     static async getOrders(req, res) {
         try {
-            let orders = await Order.findAll();
+            let orders = await Order.findAll({
+                attributes: {
+                    include: ['id']
+                }
+            });
             (orders) ?
                 res.json(orders)
                 : res.json({ message: 'failed to request data' })
@@ -69,7 +73,9 @@ class OrderController {
             const id = +req.params.id;
             let result = await Order.findOne({
                 where: { id },
-                include
+                attributes: {
+                    include: ['id']
+                }
             });
             (result) ? res.json(result) : res.json({ message: "not found" });
         } catch (error) {
