@@ -26,7 +26,7 @@
 
 + untuk mengupdate data dari tabel menu
 
-`GET /menus/:id`
+`GET /menus/id`
 
     http://localhost:3000/menus/1
 
@@ -59,13 +59,13 @@
 
 + untuk mengupdate data dari tabel receipt
 
-`GET /receipts/:id`
+`GET /receipts/id`
 
     http://localhost:3000/receipts/1
 
 + untuk mengambil satu data dari tabel receipt berdasar id
 
-`GET /receipts/count/:id`
+`GET /receipts/count/id`
 
     http://localhost:3000/receipts/count/1
 
@@ -98,7 +98,7 @@
 
 + untuk mengupdate data dari tabel order
 
-`GET /orders/:id`
+`GET /orders/id`
 
     http://localhost:3000/orders/1
 
@@ -131,7 +131,7 @@
 
 + untuk mengupdate data dari tabel promo
 
-`GET /promos/:id`
+`GET /promos/id`
 
     http://localhost:3000/promos/1
 
